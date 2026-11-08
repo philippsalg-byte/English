@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinguaCraft - English Grammar & Vocabulary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            heading: ['"Outfit"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: { 900: '#0F2942', 800: '#1E3A5F', 500: '#0284C7' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background-color: #F8FAFC; color: #0F172A; }
+    h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
+    .perspective-1000 { perspective: 1000px; }
+    .transform-style-preserve-3d { transform-style: preserve-3d; }
+    .backface-hidden { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+    .rotate-y-180 { transform: rotateY(180deg); }
+    details > summary { list-style: none; }
+    details > summary::-webkit-details-marker { display: none; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn { animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-[#F8FAFC]">
+
+  <!-- Top Bar -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3 shrink-0">
+        <div class="w-9 h-9 rounded-xl bg-[#0F2942] text-white flex items-center justify-center shadow-sm">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+        </div>
+        <span class="text-xl font-bold tracking-tight text-[#0F2942]">LinguaCraft</span>
+      </div>
+
+      <nav class="flex items-center gap-1 sm:gap-2">
+        <button id="tabBtnExplanations" onclick="switchTab('explanations')" class="px-3 py-1.5 sm:px-3.5 sm:py-2 text-xs sm:text-sm font-semibold rounded-lg transition-all flex items-center gap-2 bg-[#0F2942] text-white shadow-sm cursor-pointer">
+          <span>Erklärungen</span>
+        </button>
+        <button id="tabBtnExercises" onclick="switchTab('exercises')" class="px-3 py-1.5 sm:px-3.5 sm:py-2 text-xs sm:text-sm font-semibold rounded-lg transition-all flex items-center gap-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100 cursor-pointer">
+          <span>Übungen (50)</span>
+        </button>
+        <button id="tabBtnFlashcards" onclick="switchTab('flashcards')" class="px-3 py-1.5 sm:px-3.5 sm:py-2 text-xs sm:text-sm font-semibold rounded-lg transition-all flex items-center gap-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100 cursor-pointer">
+          <span>Vokabeln (15)</span>
+        </button>
+      </nav>
+
+      <div class="hidden lg:flex items-center gap-3 shrink-0 text-xs font-medium text-slate-500">
+        <span>Level: Intermediate B1/B2</span>
+        <span>·</span>
+        <span>English File 5th Ed.</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-8">
+    
+    <!-- SECTION 1: EXPLANATIONS -->
+    <section id="sectionExplanations" class="space-y-8 animate-fadeIn">
+      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-xs">
+        <span class="text-xs font-bold text-[#0284C7] uppercase tracking-wider">Grammatik-Grundlagen</span>
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-[#0F2942] mt-1 mb-3">
+          Kompakte Erklärungen & Regeln
+        </h1>
+        <p class="text-slate-600 text-sm sm:text-base leading-relaxed max-w-3xl">
+          Strukturierte Übersicht der Grammatik-Regeln für Intermediate-Lernende. Klicke auf die Abschnitte, um Regeln, Beispiele und Stolperfallen aufzuklappen.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <h2 class="text-xl font-bold text-[#0F2942]">1. Gerunds vs. Infinitives (-ing vs. to + Verb)</h2>
+        <details class="group bg-white rounded-xl border border-slate-200 shadow-xs open:shadow-md transition-all" open>
+          <summary class="flex items-center justify-between p-5 cursor-pointer font-semibold text-slate-900 group-open:text-[#0F2942]">
+            <div class="flex items-center gap-3">
+              <span class="w-7 h-7 rounded-lg bg-sky-50 text-[#0284C7] font-bold text-xs flex items-center justify-center">A</span>
+              <span>Nach bestimmten Verben (Verb + Gerund vs. Verb + Infinitive)</span>
+            </div>
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+          </summary>
+          <div class="px-5 pb-5 pt-2 text-sm text-slate-600 border-t border-slate-100">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+              <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/70">
+                <h3 class="font-bold text-[#0F2942] text-sm mb-2">Verben mit Gerund (-ing)</h3>
+                <p class="font-mono text-xs text-slate-800 bg-white p-2 rounded border border-slate-200 mb-2">enjoy, avoid, mind, finish, practise, imagine, suggest, spend time</p>
+                <ul class="text-xs space-y-1 text-slate-700 list-disc list-inside">
+                  <li>I <strong class="text-[#0F2942]">enjoy cooking</strong> dinner with aubergines.</li>
+                  <li>He <strong class="text-[#0F2942]">avoids driving</strong> in rush hour.</li>
+                </ul>
+              </div>
+              <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/70">
+                <h3 class="font-bold text-[#0F2942] text-sm mb-2">Verben mit Infinitiv (to + Verb)</h3>
+                <p class="font-mono text-xs text-slate-800 bg-white p-2 rounded border border-slate-200 mb-2">decide, hope, plan, promise, refuse, offer, need, want, manage</p>
+                <ul class="text-xs space-y-1 text-slate-700 list-disc list-inside">
+                  <li>We <strong class="text-[#0F2942]">decided to apply</strong> for a mortgage.</li>
+                  <li>She <strong class="text-[#0F2942]">promised to be</strong> sensible.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <details class="group bg-white rounded-xl border border-slate-200 shadow-xs open:shadow-md transition-all">
+          <summary class="flex items-center justify-between p-5 cursor-pointer font-semibold text-slate-900 group-open:text-[#0F2942]">
+            <div class="flex items-center gap-3">
+              <span class="w-7 h-7 rounded-lg bg-sky-50 text-[#0284C7] font-bold text-xs flex items-center justify-center">B</span>
+              <span>Nach Präpositionen (Goldene Regel: Immer -ing!)</span>
+            </div>
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+          </summary>
+          <div class="px-5 pb-5 pt-2 text-sm text-slate-600 border-t border-slate-100 space-y-3">
+            <p>Nach jeder Präposition (<em>at, in, of, about, before, after, without, instead of</em>) folgt zwingend das <strong>Gerund (-ing)</strong>.</p>
+            <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-900">
+              <strong>Falle "look forward to":</strong> "to" ist hier Präposition, daher immer: <em>I look forward to seeing you.</em>
+            </div>
+          </div>
+        </details>
+
+        <details class="group bg-white rounded-xl border border-slate-200 shadow-xs open:shadow-md transition-all">
+          <summary class="flex items-center justify-between p-5 cursor-pointer font-semibold text-slate-900 group-open:text-[#0F2942]">
+            <div class="flex items-center gap-3">
+              <span class="w-7 h-7 rounded-lg bg-sky-50 text-[#0284C7] font-bold text-xs flex items-center justify-center">C</span>
+              <span>Gerund als Subjekt & Infinitive of Purpose (Zweckangabe)</span>
+            </div>
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+          </summary>
+          <div class="px-5 pb-5 pt-2 text-sm text-slate-600 border-t border-slate-100 space-y-3">
+            <p><strong>Gerund als Subjekt:</strong> <em>Eating healthy food keeps you fit. Exercising prevents exhaustion.</em></p>
+            <p><strong>Infinitive of Purpose:</strong> Um den Zweck anzugeben ("um ... zu"), nutzen wir "to + Verb": <em>I went home <strong>to rest</strong>.</em></p>
+          </div>
+        </details>
+      </div>
+
+      <div class="space-y-4 pt-4">
+        <h2 class="text-xl font-bold text-[#0F2942]">2. Reported Speech (Indirekte Rede)</h2>
+        <details class="group bg-white rounded-xl border border-slate-200 shadow-xs open:shadow-md transition-all" open>
+          <summary class="flex items-center justify-between p-5 cursor-pointer font-semibold text-slate-900 group-open:text-[#0F2942]">
+            <div class="flex items-center gap-3">
+              <span class="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-700 font-bold text-xs flex items-center justify-center">A</span>
+              <span>Aussagesätze & Die Zeitverschiebung (Backshift of Tenses)</span>
+            </div>
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+          </summary>
+          <div class="px-5 pb-5 pt-2 text-sm text-slate-600 border-t border-slate-100 space-y-3">
+            <p>Wird die Rede durch ein Vergangenheitsverb eingeleitet (<em>He said / She told me</em>), verschiebt sich die Zeitform:</p>
+            <div class="overflow-x-auto rounded-xl border border-slate-200">
+              <table class="w-full text-xs text-left">
+                <thead class="bg-slate-50 border-b border-slate-200 font-bold text-slate-700">
+                  <tr><th class="p-2.5">Direkt</th><th class="p-2.5">Indirekt (Backshift)</th><th class="p-2.5">Beispiel</th></tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                  <tr><td class="p-2.5">Present Simple</td><td class="p-2.5 font-semibold text-[#0284C7]">Past Simple</td><td class="p-2.5">"I am starving" → He said he <strong>was</strong> starving</td></tr>
+                  <tr><td class="p-2.5">Present Continuous</td><td class="p-2.5 font-semibold text-[#0284C7]">Past Continuous</td><td class="p-2.5">"I am writing" → She said she <strong>was writing</strong></td></tr>
+                  <tr><td class="p-2.5">Past Simple / Pres. Perfect</td><td class="p-2.5 font-semibold text-emerald-700">Past Perfect</td><td class="p-2.5">"I bought a flat" → She said she <strong>had bought</strong></td></tr>
+                  <tr><td class="p-2.5">will / can</td><td class="p-2.5 font-semibold text-amber-700">would / could</td><td class="p-2.5">"I will help" → He said he <strong>would help</strong></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+
+        <details class="group bg-white rounded-xl border border-slate-200 shadow-xs open:shadow-md transition-all">
+          <summary class="flex items-center justify-between p-5 cursor-pointer font-semibold text-slate-900 group-open:text-[#0F2942]">
+            <div class="flex items-center gap-3">
+              <span class="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-700 font-bold text-xs flex items-center justify-center">B</span>
+              <span>Fragen in indirekter Rede (mit und ohne Fragewort)</span>
+            </div>
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+          </summary>
+          <div class="px-5 pb-5 pt-2 text-sm text-slate-600 border-t border-slate-100 space-y-4">
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+              <h4 class="font-bold text-[#0F2942] text-xs">Fragen ohne Fragewort (Yes/No)</h4>
+              <p class="text-xs text-slate-600 mt-1">Einleitung mit <strong>if</strong> oder <strong>whether</strong> + normale Satzstellung (Subjekt + Verb):</p>
+              <p class="font-mono text-xs bg-white p-2 rounded border border-slate-200 mt-1">"Do you have enough budget?" → He asked me <strong>if I had</strong> enough budget.</p>
+            </div>
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+              <h4 class="font-bold text-[#0F2942] text-xs">Fragen mit Fragewort (Wh-)</h4>
+              <p class="text-xs text-slate-600 mt-1">Fragewort bleibt erhalten, normale Satzstellung (keine Inversion):</p>
+              <p class="font-mono text-xs bg-white p-2 rounded border border-slate-200 mt-1">"Where is the tennis coach?" → She asked <strong>where the tennis coach was</strong>.</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div class="bg-gradient-to-r from-[#0F2942] to-[#1E3A5F] text-white p-6 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          <h3 class="font-bold text-lg">Regeln verstanden?</h3>
+          <p class="text-xs sm:text-sm text-slate-200">Wende dein Wissen direkt in 50 interaktiven Aufgaben (Multiple Choice & freie Texteingabe) an!</p>
+        </div>
+        <button onclick="switchTab('exercises')" class="px-5 py-2.5 bg-white text-[#0F2942] font-bold text-xs sm:text-sm rounded-xl hover:bg-slate-100 transition-colors shadow-sm cursor-pointer">
+          Zu den 50 Übungen →
+        </button>
+      </div>
+    </section>
+
+    <!-- SECTION 2: EXERCISES -->
+    <section id="sectionExercises" class="hidden space-y-6 animate-fadeIn">
+      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Interaktive Praxis</span>
+            <span class="text-xs bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full font-bold">50 Aufgaben</span>
+          </div>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-[#0F2942] mt-1">Grammatik-Übungsbereich</h1>
+          <p class="text-slate-600 text-xs sm:text-sm mt-1">Freie Texteingaben und Dropdown-Aufgaben. Tippe deine Antwort ein oder wähle sie aus und klicke auf "Jetzt auswerten".</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-2 shrink-0">
+          <div class="flex items-center gap-1 p-1 bg-slate-100 rounded-xl">
+            <button id="exFilterAll" onclick="setExerciseFilter('all')" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-white text-[#0F2942] shadow-xs cursor-pointer">Alle (50)</button>
+            <button id="exFilterGI" onclick="setExerciseFilter('gi')" class="px-3 py-1.5 text-xs font-semibold rounded-lg text-slate-600 hover:text-slate-900 cursor-pointer">Gerund/Inf (25)</button>
+            <button id="exFilterRS" onclick="setExerciseFilter('rs')" class="px-3 py-1.5 text-xs font-semibold rounded-lg text-slate-600 hover:text-slate-900 cursor-pointer">Reported Speech (25)</button>
+          </div>
+          <div class="flex items-center gap-1 p-1 bg-slate-100 rounded-xl">
+            <button id="typeFilterAll" onclick="setTypeFilter('all')" class="px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-white text-[#0F2942] shadow-xs cursor-pointer">Alle Typen</button>
+            <button id="typeFilterText" onclick="setTypeFilter('text')" class="px-2.5 py-1.5 text-xs font-semibold rounded-lg text-slate-600 hover:text-slate-900 cursor-pointer">✍️ Nur Schreiben</button>
+            <button id="typeFilterDropdown" onclick="setTypeFilter('dropdown')" class="px-2.5 py-1.5 text-xs font-semibold rounded-lg text-slate-600 hover:text-slate-900 cursor-pointer">Dropdown</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="scoreBanner" class="hidden p-5 rounded-2xl border transition-all"></div>
+      <div id="exercisesContainer" class="space-y-4"></div>
+
+      <div class="sticky bottom-4 z-40 bg-white/95 backdrop-blur-md p-4 rounded-2xl border border-slate-200 shadow-lg flex items-center justify-between gap-4">
+        <div id="exerciseProgress" class="text-xs text-slate-600 font-medium">0 von 50 beantwortet</div>
+        <div class="flex items-center gap-3">
+          <button onclick="resetExercises()" class="px-4 py-2 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors cursor-pointer">Zurücksetzen</button>
+          <button onclick="evaluateExercises()" class="px-6 py-2.5 text-xs sm:text-sm font-bold text-white bg-[#0F2942] rounded-xl hover:bg-[#1E3A5F] active:scale-[0.98] transition-all shadow-sm cursor-pointer">Jetzt auswerten</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: VOCABULARY -->
+    <section id="sectionFlashcards" class="hidden space-y-6 animate-fadeIn">
+      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-xs">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-bold text-[#0F2942] uppercase tracking-wider">Vokabel-Trainer</span>
+              <span class="text-xs bg-sky-100 text-[#0284C7] px-2 py-0.5 rounded-full font-bold">2 Modi verfügbar</span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-[#0F2942] mt-1">Vokabeln lernen & aktiv schreiben</h1>
+            <p class="text-slate-600 text-xs sm:text-sm mt-1">Wähle zwischen visuellen 3D-Karteikarten oder dem interaktiven Schreib-Modus mit Rechtschreibkorrektur.</p>
+          </div>
+
+          <div class="flex items-center gap-2 shrink-0">
+            <div class="flex items-center gap-1 p-1 bg-slate-100 rounded-xl">
+              <button id="modeBtnFlip" onclick="setVocabMode('flip')" class="px-3 py-1.5 text-xs font-bold rounded-lg bg-white text-[#0F2942] shadow-xs cursor-pointer">Karten-Flip</button>
+              <button id="modeBtnWrite" onclick="setVocabMode('write')" class="px-3 py-1.5 text-xs font-bold rounded-lg text-slate-600 hover:text-slate-900 cursor-pointer">✍️ Schreib-Modus</button>
+            </div>
+            <button onclick="toggleAddCardForm()" class="px-3.5 py-1.5 text-xs font-bold text-[#0F2942] bg-slate-100 hover:bg-slate-200 rounded-xl cursor-pointer">+ Wort anlegen</button>
+          </div>
+        </div>
+
+        <div class="mt-6 pt-5 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div class="flex items-center gap-3 text-xs text-slate-500">
+            <span id="cardCountDeck" class="font-semibold text-slate-800">15 Vokabeln im Deck</span>
+            <span>·</span>
+            <span id="learnedCountDeck" class="text-emerald-700 font-semibold">0 als gelernt markiert</span>
+            <span id="directionLabel" class="hidden text-[#0284C7] font-semibold">· Richtung: Deutsch → Englisch</span>
+          </div>
+          <div class="flex items-center gap-2 w-full sm:w-auto">
+            <button id="reverseDirBtn" onclick="toggleWriteDirection()" class="hidden px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-300 text-slate-700 hover:bg-slate-50 cursor-pointer">⇄ Richtung umkehren</button>
+            <input type="text" id="cardSearchInput" oninput="handleCardSearch(this.value)" placeholder="Vokabel filtern..." class="w-full sm:w-64 pl-3 pr-4 py-1.5 text-xs rounded-xl border border-slate-300 focus:border-[#0F2942] outline-none">
+          </div>
+        </div>
+      </div>
+
+      <!-- Add Card Form -->
+      <form id="addCardForm" onsubmit="handleCreateCard(event)" class="hidden bg-white rounded-2xl p-6 border-2 border-dashed border-[#0F2942]/30 shadow-xs space-y-4">
+        <h3 class="font-bold text-base text-[#0F2942]">+ Neue Karteikarte erstellen</h3>
+        <div id="formFeedback" class="hidden p-3 rounded-lg text-xs"></div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Englisches Wort *</label>
+            <input type="text" id="formEnglish" required placeholder="z.B. resilient" class="w-full px-3 py-2 text-xs rounded-lg border border-slate-300 outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Deutsche Übersetzung *</label>
+            <input type="text" id="formGerman" required placeholder="z.B. belastbar" class="w-full px-3 py-2 text-xs rounded-lg border border-slate-300 outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Wortart</label>
+            <select id="formPos" class="w-full px-3 py-2 text-xs rounded-lg border border-slate-300 bg-white outline-none">
+              <option value="noun">Nomen (n)</option>
+              <option value="adjective">Adjektiv (adj)</option>
+              <option value="verb">Verb (v)</option>
+              <option value="phrase">Phrase / Redewendung</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Beispielsatz (optional)</label>
+          <input type="text" id="formExample" placeholder="z.B. She is resilient despite challenges." class="w-full px-3 py-2 text-xs rounded-lg border border-slate-300 outline-none">
+        </div>
+        <div class="flex justify-end gap-3 pt-2">
+          <button type="button" onclick="toggleAddCardForm()" class="px-4 py-2 text-xs font-medium text-slate-600 hover:text-slate-800 cursor-pointer">Abbrechen</button>
+          <button type="submit" class="px-5 py-2 text-xs font-bold text-white bg-[#0F2942] rounded-xl hover:bg-[#1E3A5F] cursor-pointer">Karte speichern</button>
+        </div>
+      </form>
+
+      <!-- View Containers -->
+      <div id="flashcardsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      <div id="vocabWriteContainer" class="hidden space-y-4"></div>
+    </section>
+
+  </main>
+
+  <footer class="mt-auto border-t border-slate-200 bg-white py-6">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+      <div>LinguaCraft EdTech © 2026 · Oxford English File Intermediate 5th Edition</div>
+      <div class="flex items-center gap-4">
+        <span>50 Grammatik-Aufgaben</span><span>·</span><span>Selberschreiben & Dropdown</span><span>·</span><span>Vokabeltrainer</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const INITIAL_CARDS = [
+      { id: '1', english: 'aubergine', german: 'Aubergine', pos: 'noun', pron: '/ˈəʊbəʒiːn/', ex: 'You need an aubergine for this pasta dish.' },
+      { id: '2', english: 'baked', german: 'gebacken', pos: 'adjective', pron: '/beɪkt/', ex: 'I had a baked potato with tuna for my lunch.' },
+      { id: '3', english: 'cheer yourself up', german: 'muntern Sie sich selbst auf', pos: 'phrase', pron: '/tʃɪə jɔːˈself ʌp/', ex: "Do you like any food to cheer yourself up when you're sad?" },
+      { id: '4', english: 'reliable', german: 'zuverlässig', pos: 'adjective', pron: '/rɪˈlaɪəbl/', ex: 'Ken is not very reliable – he’s always late.' },
+      { id: '5', english: 'sensible', german: 'vernünftig', pos: 'adjective', pron: '/ˈsensəbl/', ex: 'Our teenage daughter is sensible so we can trust her.' },
+      { id: '6', english: 'selfish', german: 'egoistisch', pos: 'adjective', pron: '/ˈselfɪʃ/', ex: 'Jane is selfish and only ever thinks of herself.' },
+      { id: '7', english: 'budget', german: 'Budget', pos: 'noun', pron: '/ˈbʌdʒɪt/', ex: 'I have £150 in my budget for food this month.' },
+      { id: '8', english: 'mortgage', german: 'Hypothek', pos: 'noun', pron: '/ˈmɔːɡɪdʒ/', ex: 'The bank gave me a mortgage so that I could buy a house.' },
+      { id: '9', english: 'exhausted', german: 'erschöpft', pos: 'adjective', pron: '/ɪɡˈzɔːstɪd/', ex: "We're exhausted. We've been walking around all day." },
+      { id: '10', english: 'starving', german: 'verhungern', pos: 'adjective', pron: '/stɑːvɪŋ/', ex: 'Do you want some lunch? ~ Yes, I’m starving.' },
+      { id: '11', english: 'traffic jam', german: 'Verkehrsstau', pos: 'noun', pron: '/ˈtræfɪk ˌdʒæm/', ex: 'Sorry I’m late – there was a terrible traffic jam.' },
+      { id: '12', english: 'coach', german: 'Trainer/-in', pos: 'noun', pron: '/kəʊtʃ/', ex: 'My dad is a tennis coach.' },
+      { id: '13', english: 'script', german: 'Drehbuch', pos: 'noun', pron: '/skrɪpt/', ex: 'The script was written by an experienced writer.' },
+      { id: '14', english: 'spacious', german: 'geräumig', pos: 'adjective', pron: '/ˈspeɪʃəs/', ex: 'Our kitchen is really spacious so we put a dining table in it.' },
+      { id: '15', english: 'evidence', german: 'Beweis', pos: 'noun', pron: '/ˈevɪdəns/', ex: 'What evidence did the police find?' }
+    ];
+
+    const EXERCISES = [
+      // 25 Gerund / Infinitive
+      { id: 'e1', topic: 'gi', type: 'dropdown', before: 'She decided', after: 'abroad for a whole semester.', correct: 'to study', options: ['to study', 'studying', 'study'], category: 'Verben mit Infinitiv', exp: 'Nach Verben wie decide, hope, plan folgt immer der Infinitiv mit "to".' },
+      { id: 'e2', topic: 'gi', type: 'dropdown', before: 'He avoids', after: 'in rush hour whenever possible.', correct: 'driving', options: ['to drive', 'driving', 'drive'], category: 'Verben mit Gerund', exp: 'Nach Verben wie avoid, enjoy, mind folgt immer das Gerund (-ing).' },
+      { id: 'e3', topic: 'gi', type: 'text', before: 'He is really good at', after: 'languages quickly. (learn)', correct: 'learning', category: 'Nach Präpositionen', exp: 'Nach jeder Präposition (at, in, of, about) muss zwingend die -ing-Form stehen.' },
+      { id: 'e4', topic: 'gi', type: 'dropdown', before: '', after: 'in the morning keeps me energetic all day.', correct: 'Running', options: ['Running', 'To run', 'Run'], category: 'Gerund als Subjekt', exp: 'Wenn eine Aktivität Subjekt des Satzes ist, verwendet man das Gerund.' },
+      { id: 'e5', topic: 'gi', type: 'text', before: 'I turned off the notifications', after: 'better on the exam. (concentrate)', correct: 'to concentrate', category: 'Infinitive of Purpose', exp: 'Infinitive of Purpose: Zweckangabe ("um zu...") erfordert "to + Verb".' },
+      { id: 'e6', topic: 'gi', type: 'dropdown', before: 'We look forward to', after: 'you at the conference.', correct: 'seeing', options: ['seeing', 'to see', 'see'], category: 'Nach Präpositionen', exp: 'Vorsicht Falle: Bei "look forward to" ist "to" eine Präposition, danach folgt -ing.' },
+      { id: 'e7', topic: 'gi', type: 'text', before: 'They managed', after: 'all the documents before the deadline. (submit)', correct: 'to submit', category: 'Verben mit Infinitiv', exp: '"manage" verlangt den Infinitiv mit "to".' },
+      { id: 'e8', topic: 'gi', type: 'dropdown', before: 'Do you mind', after: 'the window? It is getting quite cold.', correct: 'closing', options: ['closing', 'to close', 'close'], category: 'Verben mit Gerund', exp: 'Nach dem Verb "mind" folgt immer das Gerund (-ing).' },
+      { id: 'e9', topic: 'gi', type: 'text', before: 'She apologized for', after: 'so late to the meeting. (be)', correct: 'being', category: 'Nach Präpositionen', exp: 'Nach der Präposition "for" folgt das Gerund "being".' },
+      { id: 'e10', topic: 'gi', type: 'dropdown', before: '', after: 'a mortgage requires a solid financial budget.', correct: 'Getting', options: ['Getting', 'To get', 'Get'], category: 'Gerund als Subjekt', exp: 'Gerund als Subjekt des Satzes.' },
+      { id: 'e11', topic: 'gi', type: 'text', before: 'He promised', after: 'me back the money next week. (pay)', correct: 'to pay', category: 'Verben mit Infinitiv', exp: '"promise" verlangt den Infinitiv mit "to".' },
+      { id: 'e12', topic: 'gi', type: 'dropdown', before: 'I can’t imagine', after: 'in such an overcrowded city.', correct: 'living', options: ['living', 'to live', 'live'], category: 'Verben mit Gerund', exp: 'Nach "imagine" steht das Gerund (-ing).' },
+      { id: 'e13', topic: 'gi', type: 'text', before: 'They left the restaurant without', after: 'for the drinks. (pay)', correct: 'paying', category: 'Nach Präpositionen', exp: '"without" ist eine Präposition -> Gerund (-ing).' },
+      { id: 'e14', topic: 'gi', type: 'text', before: 'She went to the library', after: 'for her biology exam. (revise)', correct: 'to revise', category: 'Infinitive of Purpose', exp: 'Infinitive of Purpose: Zweckangabe ("um zu wiederholen") -> to revise.' },
+      { id: 'e15', topic: 'gi', type: 'dropdown', before: 'He offered', after: 'us to the airport in his new van.', correct: 'to drive', options: ['to drive', 'driving', 'drive'], category: 'Verben mit Infinitiv', exp: '"offer" verlangt den Infinitiv mit "to".' },
+      { id: 'e16', topic: 'gi', type: 'dropdown', before: 'My sister suggested', after: 'some baked potatoes with tuna.', correct: 'having', options: ['having', 'to have', 'have'], category: 'Verben mit Gerund', exp: '"suggest" verlangt immer das Gerund (-ing).' },
+      { id: 'e17', topic: 'gi', type: 'text', before: 'Are you interested in', after: 'the tennis club this summer? (join)', correct: 'joining', category: 'Nach Präpositionen', exp: 'Präposition "in" -> Gerund "joining".' },
+      { id: 'e18', topic: 'gi', type: 'dropdown', before: '', after: 'too much overtime makes employees feel exhausted.', correct: 'Working', options: ['Working', 'To work', 'Work'], category: 'Gerund als Subjekt', exp: 'Gerund als Satzsubjekt.' },
+      { id: 'e19', topic: 'gi', type: 'text', before: 'We refused', after: 'the contract because of the terms. (sign)', correct: 'to sign', category: 'Verben mit Infinitiv', exp: '"refuse" verlangt den Infinitiv mit "to".' },
+      { id: 'e20', topic: 'gi', type: 'text', before: 'I bought chocolate', after: 'myself up after a tough day. (cheer)', correct: 'to cheer', category: 'Infinitive of Purpose', exp: 'Zweckangabe: to cheer yourself up.' },
+      { id: 'e21', topic: 'gi', type: 'dropdown', before: 'Have you finished', after: 'that film script yet?', correct: 'reading', options: ['reading', 'to read', 'read'], category: 'Verben mit Gerund', exp: 'Nach "finish" folgt das Gerund (-ing).' },
+      { id: 'e22', topic: 'gi', type: 'text', before: 'He is fed up with', after: 'stuck in the daily traffic jam. (be)', correct: 'being', category: 'Nach Präpositionen', exp: 'Präposition "with" -> Gerund "being".' },
+      { id: 'e23', topic: 'gi', type: 'text', before: 'She hopes', after: 'a promotion before the end of the year. (get)', correct: 'to get', category: 'Verben mit Infinitiv', exp: '"hope" verlangt "to + Verb".' },
+      { id: 'e24', topic: 'gi', type: 'dropdown', before: 'She spends hours', after: 'through social media photos on her phone.', correct: 'scrolling', options: ['scrolling', 'to scroll', 'scroll'], category: 'Verben mit Gerund', exp: 'Nach "spend time" folgt immer das Gerund.' },
+      { id: 'e25', topic: 'gi', type: 'text', before: 'Instead of', after: 'money on unnecessary items, save it. (waste)', correct: 'wasting', category: 'Nach Präpositionen', exp: '"Instead of" ist präpositional -> Gerund.' },
+
+      // 25 Reported Speech
+      { id: 'e26', topic: 'rs', type: 'text', before: 'Direct: "I am writing a script," Ben said. -> Ben said that he', after: 'a script.', correct: 'was writing', category: 'Aussagesätze & Backshift', exp: 'Present Continuous ("am writing") verschiebt sich ins Past Continuous ("was writing").' },
+      { id: 'e27', topic: 'rs', type: 'dropdown', before: 'Direct: "I bought a spacious flat." -> She told me she', after: 'a spacious flat.', correct: 'had bought', options: ['had bought', 'bought', 'has bought'], category: 'Aussagesätze & Backshift', exp: 'Past Simple ("bought") verschiebt sich ins Past Perfect ("had bought").' },
+      { id: 'e28', topic: 'rs', type: 'dropdown', before: 'Direct: "Do you have enough budget?" -> He asked me', after: 'enough budget.', correct: 'if I had', options: ['if I had', 'whether had I', 'did I have', 'that I had'], category: 'Fragen ohne Fragewort (Yes/No)', exp: 'Yes/No-Fragen werden mit if/whether eingeleitet; normale Satzstellung (Subjekt + Verb).' },
+      { id: 'e29', topic: 'rs', type: 'text', before: 'Direct: "Where is the tennis coach?" -> She asked where the tennis coach', after: '.', correct: 'was', category: 'Fragen mit Fragewort (Wh-)', exp: 'Fragewort bleibt erhalten, normale Satzstellung ("where the coach was", nicht "where was the coach").' },
+      { id: 'e30', topic: 'rs', type: 'dropdown', before: 'Direct: "Will you come to the party?" -> Tim asked me if I', after: 'to the party.', correct: 'would come', options: ['would come', 'will come', 'came'], category: 'Aussagesätze & Modals', exp: '"will" wandelt sich in indirekter Rede zu "would".' },
+      { id: 'e31', topic: 'rs', type: 'text', before: 'Direct: "We have found the evidence," said the detective. -> The detective said that they', after: 'the evidence.', correct: 'had found', category: 'Aussagesätze & Backshift', exp: 'Present Perfect ("have found") wandelt sich ins Past Perfect ("had found").' },
+      { id: 'e32', topic: 'rs', type: 'text', before: 'Direct: "I am feeling exhausted," Maria said. -> Maria said she', after: 'exhausted.', correct: 'was feeling', category: 'Aussagesätze & Backshift', exp: '"am feeling" wird zu "was feeling".' },
+      { id: 'e33', topic: 'rs', type: 'dropdown', before: 'Direct: "Why are you late?" the manager asked. -> The manager asked me why I', after: 'late.', correct: 'was', options: ['was', 'was I', 'am', 'did be'], category: 'Fragen mit Fragewort (Wh-)', exp: 'Wh-Frage: Fragewort "why" + Subjekt "I" + Verb "was".' },
+      { id: 'e34', topic: 'rs', type: 'text', before: 'Direct: "I can help you with your mortgage," Paul told me. -> Paul told me that he', after: 'help me with my mortgage.', correct: 'could', category: 'Aussagesätze & Modals', exp: '"can" wird in indirekter Rede zu "could".' },
+      { id: 'e35', topic: 'rs', type: 'dropdown', before: 'Direct: "Did you see the accident?" the officer asked. -> The officer asked if I', after: 'the accident.', correct: 'had seen', options: ['had seen', 'saw', 'did see', 'have seen'], category: 'Fragen ohne Fragewort (Yes/No)', exp: 'Past Simple ("Did you see") wird zu Past Perfect ("had seen").' },
+      { id: 'e36', topic: 'rs', type: 'text', before: 'Direct: "I don’t eat meat," said Sarah. -> Sarah explained that she', after: 'meat.', correct: "didn't eat", category: 'Aussagesätze & Backshift', exp: 'Present Simple negativ ("don’t eat") wird zu Past Simple ("didn’t eat").' },
+      { id: 'e37', topic: 'rs', type: 'dropdown', before: 'Direct: "What time does the train arrive?" -> He asked what time the train', after: '.', correct: 'arrived', options: ['arrived', 'did arrive', 'does arrive', 'was arriving'], category: 'Fragen mit Fragewort (Wh-)', exp: 'Wh-Frage: Hilfsverb "does" entfällt; Present Simple wird zu Past Simple.' },
+      { id: 'e38', topic: 'rs', type: 'text', before: 'Direct: "We will sign the agreement tomorrow," they said. -> They said they', after: 'the agreement the next day.', correct: 'would sign', category: 'Aussagesätze & Modals', exp: '"will" wird zu "would".' },
+      { id: 'e39', topic: 'rs', type: 'dropdown', before: 'Direct: "Are you ready?" she asked. -> She asked me', after: 'ready.', correct: 'if I was', options: ['if I was', 'was I', 'if was I', 'that I was'], category: 'Fragen ohne Fragewort (Yes/No)', exp: 'Yes/No Frage: "if" + Subjekt "I" + Verb "was".' },
+      { id: 'e40', topic: 'rs', type: 'text', before: 'Direct: "I have never seen such a selfish person," he said. -> He said that he', after: 'never seen such a selfish person.', correct: 'had', category: 'Aussagesätze & Backshift', exp: 'Present Perfect ("have never seen") wird zu Past Perfect ("had never seen").' },
+      { id: 'e41', topic: 'rs', type: 'dropdown', before: 'Direct: "How much did that cost?" -> She inquired how much that', after: '.', correct: 'had cost', options: ['had cost', 'cost', 'did cost', 'was costing'], category: 'Fragen mit Fragewort (Wh-)', exp: 'Past Simple ("did cost") wird zu Past Perfect ("had cost").' },
+      { id: 'e42', topic: 'rs', type: 'text', before: 'Direct: "We must leave now," John insisted. -> John insisted that they', after: 'to leave then.', correct: 'had', category: 'Aussagesätze & Modals', exp: '"must" wird zu "had to".' },
+      { id: 'e43', topic: 'rs', type: 'dropdown', before: 'Direct: "Do you like aubergine?" Anna asked. -> Anna asked me if I', after: 'aubergine.', correct: 'liked', options: ['liked', 'do like', 'did like', 'was liking'], category: 'Fragen ohne Fragewort (Yes/No)', exp: 'Yes/No Frage: "Do you like" wird im Backshift zu "liked".' },
+      { id: 'e44', topic: 'rs', type: 'text', before: 'Direct: "I have been working for hours," Tom said. -> Tom complained that he', after: 'working for hours.', correct: 'had been', category: 'Aussagesätze & Backshift', exp: 'Present Perfect Continuous ("have been working") wird zu Past Perfect Continuous ("had been working").' },
+      { id: 'e45', topic: 'rs', type: 'dropdown', before: 'Direct: "Where do you live?" the interviewer asked. -> The interviewer asked where I', after: '.', correct: 'lived', options: ['lived', 'did live', 'was living', 'do live'], category: 'Fragen mit Fragewort (Wh-)', exp: 'Wh-Frage: "Where do you live" wird zu "where I lived".' },
+      { id: 'e46', topic: 'rs', type: 'text', before: 'Direct: "I will call you back later," said Emma. -> Emma promised that she', after: 'me back later.', correct: 'would call', category: 'Aussagesätze & Modals', exp: '"will call" verschiebt sich zu "would call".' },
+      { id: 'e47', topic: 'rs', type: 'dropdown', before: 'Direct: "Have they arrested the suspects?" -> He wanted to know', after: 'the suspects.', correct: 'if they had arrested', options: ['if they had arrested', 'had they arrested', 'did they arrest', 'if had they arrested'], category: 'Fragen ohne Fragewort (Yes/No)', exp: 'Yes/No Frage: "if" + Subjekt "they" + "had arrested".' },
+      { id: 'e48', topic: 'rs', type: 'text', before: 'Direct: "I lost my phone in the tram," Peter admitted. -> Peter admitted that he', after: 'his phone in the tram.', correct: 'had lost', category: 'Aussagesätze & Backshift', exp: 'Past Simple ("lost") wird in indirekter Rede zu Past Perfect ("had lost").' },
+      { id: 'e49', topic: 'rs', type: 'dropdown', before: 'Direct: "Why did you sell the car?" -> Lisa asked why I', after: 'the car.', correct: 'had sold', options: ['had sold', 'sold', 'did sell', 'have sold'], category: 'Fragen mit Fragewort (Wh-)', exp: 'Wh-Frage mit Past Simple ("did you sell") wird zu "had sold".' },
+      { id: 'e50', topic: 'rs', type: 'text', before: 'Direct: "I am confident that we will win," said the coach. -> The coach said he', after: 'confident that they would win.', correct: 'was', category: 'Aussagesätze & Backshift', exp: '"am" wird im Backshift zu "was".' }
+    ];
+
+    let cards = [...INITIAL_CARDS];
+    let flippedCards = {};
+    let learnedCards = {};
+    let activeFilter = 'all';
+    let typeFilter = 'all';
+    let userAnswers = {};
+    let vocabMode = 'flip';
+    let writeDirection = 'de_to_en';
+    let typedVocabAnswers = {};
+    let vocabResults = {};
+
+    function switchTab(tab) {
+      document.getElementById('sectionExplanations').classList.toggle('hidden', tab !== 'explanations');
+      document.getElementById('sectionExercises').classList.toggle('hidden', tab !== 'exercises');
+      document.getElementById('sectionFlashcards').classList.toggle('hidden', tab !== 'flashcards');
+
+      const tabs = ['Explanations', 'Exercises', 'Flashcards'];
+      tabs.forEach(t => {
+        const btn = document.getElementById('tabBtn' + t);
+        const isActive = t.toLowerCase() === tab.toLowerCase();
+        btn.className = isActive 
+          ? 'px-3 py-1.5 sm:px-3.5 sm:py-2 text-xs sm:text-sm font-semibold rounded-lg transition-all flex items-center gap-2 bg-[#0F2942] text-white shadow-sm cursor-pointer'
+          : 'px-3 py-1.5 sm:px-3.5 sm:py-2 text-xs sm:text-sm font-semibold rounded-lg transition-all flex items-center gap-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100 cursor-pointer';
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderExercises() {
+      const container = document.getElementById('exercisesContainer');
+      const filtered = EXERCISES.filter(ex => {
+        const matchTopic = activeFilter === 'all' || ex.topic === activeFilter;
+        const matchType = typeFilter === 'all' || ex.type === typeFilter;
+        return matchTopic && matchType;
+      });
+      
+      container.innerHTML = filtered.map((ex, index) => {
+        const val = userAnswers[ex.id] || '';
+        return `
+          <div id="ex_card_${ex.id}" class="rounded-2xl p-5 border border-slate-200 bg-white transition-all shadow-xs">
+            <div class="flex items-center justify-between text-xs text-slate-500 mb-2">
+              <span class="font-bold text-[#0F2942]">Aufgabe ${index + 1} · ${ex.category}</span>
+              <span class="${ex.type === 'text' ? 'bg-sky-50 text-[#0284C7] border border-sky-200/60' : 'bg-slate-100 text-slate-600'} px-2 py-0.5 rounded font-medium">
+                ${ex.type === 'dropdown' ? 'Multiple Choice' : '✍️ Selberschreiben'}
+              </span>
+            </div>
+            <div class="text-sm sm:text-base font-medium text-slate-800 my-3 flex flex-wrap items-center gap-2">
+              ${ex.before ? `<span>${ex.before}</span>` : ''}
+              ${ex.type === 'dropdown' ? `
+                <select id="input_${ex.id}" onchange="updateAnswer('${ex.id}', this.value)" class="px-3 py-1.5 text-sm font-semibold rounded-lg border border-slate-300 bg-white cursor-pointer">
+                  <option value="">-- bitte wählen --</option>
+                  ${ex.options.map(opt => `<option value="${opt}" ${val === opt ? 'selected' : ''}>${opt}</option>`).join('')}
+                </select>
+              ` : `
+                <input type="text" id="input_${ex.id}" value="${val}" oninput="updateAnswer('${ex.id}', this.value)" placeholder="Antwort eintippen..." class="px-3 py-1.5 text-sm font-semibold rounded-lg border border-slate-300 bg-white min-w-[170px]">
+              `}
+              ${ex.after ? `<span>${ex.after}</span>` : ''}
+            </div>
+            <div id="feedback_${ex.id}" class="hidden mt-3 pt-3 border-t text-xs"></div>
+          </div>
+        `;
+      }).join('');
+      updateProgress();
+    }
+
+    function updateAnswer(id, val) {
+      userAnswers[id] = val;
+      updateProgress();
+      document.getElementById('feedback_' + id)?.classList.add('hidden');
+      document.getElementById('ex_card_' + id).className = 'rounded-2xl p-5 border border-slate-200 bg-white transition-all shadow-xs';
+    }
+
+    function updateProgress() {
+      const filtered = EXERCISES.filter(ex => {
+        const matchTopic = activeFilter === 'all' || ex.topic === activeFilter;
+        const matchType = typeFilter === 'all' || ex.type === typeFilter;
+        return matchTopic && matchType;
+      });
+      const answered = filtered.filter(ex => (userAnswers[ex.id] || '').trim()).length;
+      document.getElementById('exerciseProgress').innerText = `${answered} von ${filtered.length} beantwortet`;
+    }
+
+    function setExerciseFilter(filter) {
+      activeFilter = filter;
+      ['All', 'GI', 'RS'].forEach(f => {
+        const btn = document.getElementById('exFilter' + f);
+        const isActive = (filter === 'all' && f === 'All') || (filter === 'gi' && f === 'GI') || (filter === 'rs' && f === 'RS');
+        btn.className = isActive 
+          ? 'px-3 py-1.5 text-xs font-semibold rounded-lg bg-white text-[#0F2942] shadow-xs cursor-pointer'
+          : 'px-3 py-1.5 text-xs font-semibold rounded-lg text-slate-600 hover:text-slate-900 cursor-pointer';
+      });
+      renderExercises();
+    }
+
+    function setTypeFilter(t) {
+      typeFilter = t;
+      ['All', 'Text', 'Dropdown'].forEach(f => {
+        const btn = document.getElementById('typeFilter' + f);
+        const isActive = (t === 'all' && f === 'All') || (t === 'text' && f === 'Text') || (t === 'dropdown' && f === 'Dropdown');
+        btn.className = isActive 
+          ? 'px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-white text-[#0F2942] shadow-xs cursor-pointer'
+          : 'px-2.5 py-1.5 text-xs font-semibold rounded-lg text-slate-600 hover:text-slate-900 cursor-pointer';
+      });
+      renderExercises();
+    }
+
+    function evaluateExercises() {
+      const filtered = EXERCISES.filter(ex => {
+        const matchTopic = activeFilter === 'all' || ex.topic === activeFilter;
+        const matchType = typeFilter === 'all' || ex.type === typeFilter;
+        return matchTopic && matchType;
+      });
+      let correctCount = 0;
+
+      filtered.forEach(ex => {
+        const raw = (userAnswers[ex.id] || '').trim().toLowerCase().replace(/[.?!,;:]$/, '');
+        const target = ex.correct.trim().toLowerCase().replace(/[.?!,;:]$/, '');
+        const isCorrect = raw === target;
+        if (isCorrect) correctCount++;
+
+        const cardEl = document.getElementById('ex_card_' + ex.id);
+        const fbEl = document.getElementById('feedback_' + ex.id);
+
+        if (cardEl && fbEl) {
+          cardEl.className = isCorrect 
+            ? 'rounded-2xl p-5 border border-emerald-500 ring-1 ring-emerald-500/20 bg-emerald-50/30 transition-all shadow-xs'
+            : 'rounded-2xl p-5 border border-rose-400 ring-1 ring-rose-400/20 bg-rose-50/30 transition-all shadow-xs';
+          fbEl.className = isCorrect 
+            ? 'mt-3 pt-3 border-t border-emerald-200 text-xs text-emerald-800'
+            : 'mt-3 pt-3 border-t border-rose-200 text-xs text-rose-800';
+          fbEl.innerHTML = `<strong>${isCorrect ? 'Richtig gelöst!' : `Nicht ganz. Richtig: "${ex.correct}"`}</strong><p class="text-slate-600 mt-1">${ex.exp}</p>`;
+          fbEl.classList.remove('hidden');
+        }
+      });
+
+      const banner = document.getElementById('scoreBanner');
+      const pct = Math.round((correctCount / filtered.length) * 100);
+      banner.className = `p-5 rounded-2xl border flex items-center justify-between transition-all ${
+        pct >= 80 ? 'bg-emerald-50 border-emerald-200 text-emerald-950' : pct >= 50 ? 'bg-amber-50 border-amber-200 text-amber-950' : 'bg-rose-50 border-rose-200 text-rose-950'
+      }`;
+      banner.innerHTML = `
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center font-bold text-sm ${pct >= 80 ? 'bg-emerald-600' : pct >= 50 ? 'bg-amber-600' : 'bg-rose-600'} text-white">${pct}%</div>
+          <div>
+            <h3 class="font-bold text-sm sm:text-base">Testergebnis: ${correctCount} von ${filtered.length} richtig!</h3>
+            <p class="text-xs opacity-80">${pct === 100 ? 'Perfekt gemeistert!' : 'Sieh dir die Erklärungen zu den Fehlern an.'}</p>
+          </div>
+        </div>
+      `;
+      banner.classList.remove('hidden');
+    }
+
+    function resetExercises() {
+      userAnswers = {};
+      document.getElementById('scoreBanner').classList.add('hidden');
+      renderExercises();
+    }
+
+    // Flashcards & Vocabulary Writer
+    function setVocabMode(mode) {
+      vocabMode = mode;
+      document.getElementById('modeBtnFlip').className = mode === 'flip' 
+        ? 'px-3 py-1.5 text-xs font-bold rounded-lg bg-white text-[#0F2942] shadow-xs cursor-pointer' 
+        : 'px-3 py-1.5 text-xs font-bold rounded-lg text-slate-600 hover:text-slate-900 cursor-pointer';
+      document.getElementById('modeBtnWrite').className = mode === 'write' 
+        ? 'px-3 py-1.5 text-xs font-bold rounded-lg bg-[#0F2942] text-white shadow-xs cursor-pointer' 
+        : 'px-3 py-1.5 text-xs font-bold rounded-lg text-slate-600 hover:text-slate-900 cursor-pointer';
+
+      document.getElementById('flashcardsGrid').classList.toggle('hidden', mode !== 'flip');
+      document.getElementById('vocabWriteContainer').classList.toggle('hidden', mode !== 'write');
+      document.getElementById('directionLabel').classList.toggle('hidden', mode !== 'write');
+      document.getElementById('reverseDirBtn').classList.toggle('hidden', mode !== 'write');
+
+      if (mode === 'flip') renderFlashcards();
+      else renderVocabWriting();
+    }
+
+    function toggleWriteDirection() {
+      writeDirection = writeDirection === 'de_to_en' ? 'en_to_de' : 'de_to_en';
+      document.getElementById('directionLabel').innerText = `· Richtung: ${writeDirection === 'de_to_en' ? 'Deutsch → Englisch' : 'Englisch → Deutsch'}`;
+      renderVocabWriting();
+    }
+
+    function renderFlashcards(filterText = '') {
+      const grid = document.getElementById('flashcardsGrid');
+      const filtered = cards.filter(c => 
+        c.english.toLowerCase().includes(filterText.toLowerCase()) || 
+        c.german.toLowerCase().includes(filterText.toLowerCase())
+      );
+
+      document.getElementById('cardCountDeck').innerText = `${cards.length} Vokabeln im Deck`;
+      const learnedTotal = Object.values(learnedCards).filter(Boolean).length;
+      document.getElementById('learnedCountDeck').innerText = `${learnedTotal} als gelernt markiert`;
+
+      grid.innerHTML = filtered.map(card => {
+        const isFlipped = !!flippedCards[card.id];
+        const isLearned = !!learnedCards[card.id];
+        return `
+          <div class="perspective-1000 h-64 cursor-pointer select-none group" onclick="toggleFlip('${card.id}')">
+            <div class="relative w-full h-full rounded-2xl duration-500 transform-style-preserve-3d transition-transform ${isFlipped ? 'rotate-y-180' : ''}">
+              <div class="absolute inset-0 w-full h-full p-6 rounded-2xl border backface-hidden flex flex-col justify-between ${isLearned ? 'bg-emerald-50/50 border-emerald-300' : 'bg-white border-slate-200 shadow-sm group-hover:shadow-md'}">
+                <div class="flex items-center justify-between text-xs text-slate-500">
+                  <span class="font-mono text-[11px] uppercase tracking-wider text-slate-400">${card.pos || 'Word'}</span>
+                  <div class="flex items-center gap-1.5">
+                    <button onclick="speakWord('${card.english}', event)" class="p-1.5 rounded-lg text-slate-400 hover:text-[#0284C7] hover:bg-sky-50 cursor-pointer" title="Aussprache anhören">🔊</button>
+                    <button onclick="toggleLearned('${card.id}', event)" class="p-1.5 rounded-lg ${isLearned ? 'text-emerald-600 bg-emerald-100' : 'text-slate-400 hover:bg-slate-100'} cursor-pointer" title="Als gelernt markieren">✓</button>
+                  </div>
+                </div>
+                <div class="text-center my-auto">
+                  <h3 class="text-2xl font-extrabold text-[#0F2942] tracking-tight group-hover:text-[#0284C7]">${card.english}</h3>
+                  ${card.pron ? `<p class="font-mono text-xs text-slate-500 mt-1">${card.pron}</p>` : ''}
+                </div>
+                <div class="flex items-center justify-between text-[11px] text-slate-400 border-t border-slate-100 pt-3">
+                  <span>Klicken zum Wenden</span>
+                  ${isLearned ? '<span class="text-emerald-600 font-semibold">● Gelernt</span>' : ''}
+                </div>
+              </div>
+              <div class="absolute inset-0 w-full h-full p-6 rounded-2xl border border-slate-200 bg-[#0F2942] text-white backface-hidden rotate-y-180 flex flex-col justify-between shadow-md">
+                <div class="flex items-center justify-between text-xs text-slate-300">
+                  <span class="text-[11px] uppercase tracking-wider text-slate-400">Übersetzung (Deutsch)</span>
+                  <button onclick="toggleLearned('${card.id}', event)" class="p-1.5 rounded-lg ${isLearned ? 'text-emerald-400 bg-white/10' : 'text-slate-300 hover:bg-white/10'} cursor-pointer">✓</button>
+                </div>
+                <div class="text-center my-auto px-2">
+                  <h4 class="text-xl font-bold text-white mb-2">${card.german}</h4>
+                  ${card.ex ? `<p class="text-xs text-slate-300 italic bg-white/5 p-2 rounded-lg border border-white/10">"${card.ex}"</p>` : ''}
+                </div>
+                <div class="flex items-center justify-between text-[11px] text-slate-400 border-t border-white/10 pt-3">
+                  <span>Wort: ${card.english}</span>
+                  <span class="text-sky-300">Zurückdrehen ↺</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderVocabWriting(filterText = '') {
+      const container = document.getElementById('vocabWriteContainer');
+      const filtered = cards.filter(c => 
+        c.english.toLowerCase().includes(filterText.toLowerCase()) || 
+        c.german.toLowerCase().includes(filterText.toLowerCase())
+      );
+
+      container.innerHTML = `
+        <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+          <div>
+            <p class="font-bold text-[#0F2942]">✍️ Schreib-Trainer mit Rechtschreibkorrektur</p>
+            <p class="text-slate-500">Tippe die Vokabel selbst ein und klicke auf "Prüfen" oder drücke Enter.</p>
+          </div>
+          <button onclick="checkAllVocab()" class="px-4 py-1.5 bg-[#0F2942] text-white font-bold rounded-lg hover:bg-[#1E3A5F] cursor-pointer">Alle korrigieren</button>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          ${filtered.map((card, idx) => {
+            const prompt = writeDirection === 'de_to_en' ? card.german : card.english;
+            const res = vocabResults[card.id];
+            const val = typedVocabAnswers[card.id] || '';
+            const border = res ? (res.isCorrect ? 'border-emerald-500 bg-emerald-50/30' : 'border-rose-400 bg-rose-50/30') : 'border-slate-200 bg-white';
+            return `
+              <div class="rounded-2xl p-5 border ${border} transition-all shadow-xs flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between text-xs text-slate-400 mb-1">
+                    <span class="font-mono text-[11px] uppercase">${card.pos || 'Word'}</span>
+                    <span>#${idx + 1}</span>
+                  </div>
+                  <p class="text-xs text-slate-500">Übersetze ins ${writeDirection === 'de_to_en' ? 'Englische' : 'Deutsche'}:</p>
+                  <h3 class="text-xl font-extrabold text-[#0F2942] mt-0.5 mb-2">${prompt}</h3>
+                  <div class="flex items-center gap-2">
+                    <input type="text" id="vinput_${card.id}" value="${val}" oninput="handleVocabInput('${card.id}', this.value)" onkeydown="if(event.key==='Enter'){event.preventDefault();checkSingleVocab('${card.id}');}" placeholder="Wort schreiben..." class="w-full px-3.5 py-2 text-sm font-semibold rounded-xl border border-slate-300 outline-none">
+                    <button onclick="checkSingleVocab('${card.id}')" class="px-3.5 py-2 bg-[#0F2942] text-white font-bold text-xs rounded-xl hover:bg-[#1E3A5F] cursor-pointer">Prüfen</button>
+                  </div>
+                </div>
+                ${res ? `
+                  <div class="mt-3 pt-3 border-t text-xs ${res.isCorrect ? 'border-emerald-200 text-emerald-800' : 'border-rose-200 text-rose-800'}">
+                    <strong>${res.isCorrect ? 'Exzellent! Wort korrekt.' : `Falsch geschrieben. Richtig: "${res.expected}"`}</strong>
+                  </div>
+                ` : ''}
+              </div>
+            `;
+          }).join('')}
+        </div>
+      `;
+    }
+
+    function handleVocabInput(id, val) {
+      typedVocabAnswers[id] = val;
+    }
+
+    function checkSingleVocab(id) {
+      const card = cards.find(c => c.id === id);
+      if (!card) return;
+      const val = (typedVocabAnswers[id] || '').trim().toLowerCase().replace(/[.?!,;:]$/, '');
+      const expected = writeDirection === 'de_to_en' ? card.english : card.german;
+      const cleanExpected = expected.trim().toLowerCase().replace(/[.?!,;:]$/, '');
+      const isCorrect = val === cleanExpected;
+      vocabResults[id] = { isCorrect, expected };
+      renderVocabWriting(document.getElementById('cardSearchInput').value);
+    }
+
+    function checkAllVocab() {
+      cards.forEach(card => {
+        const val = (typedVocabAnswers[card.id] || '').trim().toLowerCase().replace(/[.?!,;:]$/, '');
+        const expected = writeDirection === 'de_to_en' ? card.english : card.german;
+        const cleanExpected = expected.trim().toLowerCase().replace(/[.?!,;:]$/, '');
+        vocabResults[card.id] = { isCorrect: val === cleanExpected, expected };
+      });
+      renderVocabWriting(document.getElementById('cardSearchInput').value);
+    }
+
+    function toggleFlip(id) {
+      flippedCards[id] = !flippedCards[id];
+      renderFlashcards(document.getElementById('cardSearchInput').value);
+    }
+
+    function toggleLearned(id, e) {
+      e.stopPropagation();
+      learnedCards[id] = !learnedCards[id];
+      renderFlashcards(document.getElementById('cardSearchInput').value);
+    }
+
+    function speakWord(text, e) {
+      e.stopPropagation();
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'en-GB';
+        window.speechSynthesis.speak(u);
+      }
+    }
+
+    function handleCardSearch(val) {
+      if (vocabMode === 'flip') renderFlashcards(val);
+      else renderVocabWriting(val);
+    }
+
+    function toggleAddCardForm() {
+      document.getElementById('addCardForm').classList.toggle('hidden');
+    }
+
+    function handleCreateCard(e) {
+      e.preventDefault();
+      const en = document.getElementById('formEnglish').value.trim();
+      const de = document.getElementById('formGerman').value.trim();
+      const pos = document.getElementById('formPos').value;
+      const ex = document.getElementById('formExample').value.trim();
+
+      if (!en || !de) return;
+      cards.unshift({ id: 'c_' + Date.now(), english: en, german: de, pos, ex: ex || undefined });
+
+      document.getElementById('formEnglish').value = '';
+      document.getElementById('formGerman').value = '';
+      document.getElementById('formExample').value = '';
+
+      const fb = document.getElementById('formFeedback');
+      fb.className = 'p-3 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs';
+      fb.innerText = `Vokabel "${en}" erfolgreich hinzugefügt!`;
+      fb.classList.remove('hidden');
+      setTimeout(() => fb.classList.add('hidden'), 3000);
+
+      if (vocabMode === 'flip') renderFlashcards();
+      else renderVocabWriting();
+    }
+
+    // Init
+    renderExercises();
+    renderFlashcards();
+  </script>
+</body>
+</html>
